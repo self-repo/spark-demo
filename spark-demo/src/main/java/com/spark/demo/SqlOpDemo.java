@@ -81,6 +81,8 @@ public class SqlOpDemo {
 		Dataset<Row> courseDF= spark.createDataFrame(courseRowRDD, Course.class);
 		courseDF.createOrReplaceTempView("Course");
 		spark.sql("SELECT * FROM Course").show();
+		
+		spark.sql("SELECT sname FROM Student UNION SELECT Cname FROM Course").show();
 
 	}
 
